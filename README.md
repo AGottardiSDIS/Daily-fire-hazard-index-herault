@@ -22,6 +22,6 @@ $ pip install -r ./requirements.txt
 
 3 - Dans config.py (éditeur de texte ou idle python)  actualiser les token et id sentinelhub / meteo france :
 
-https://donneespubliques.meteofrance.fr/?fond=creation_compte
+https://partner-api.meteofrance.com/store/site/pages/list-apis.jag
 
 https://services.sentinel-hub.com/
