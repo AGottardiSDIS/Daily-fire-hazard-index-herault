@@ -20,22 +20,24 @@ basé sur les travaux de Giovanni Laneve : https://www.mdpi.com/2072-4292/12/15/
 
 1 - Télécharger répertoire
 
-2 - Télecharger les dépendeances (dans l'invité de commandes) :
+2 - Télécharger python3 : https://www.python.org/downloads/
+
+3 - Télecharger les dépendeances (dans l'invité de commandes) :
 
 ```bash
 $ pip install -r ./requirements.txt
 ```
 
-3 - Dans config.py (éditeur de texte ou idle python)  actualiser les token et id sentinelhub / meteo france :
+4 - Dans config.py (éditeur de texte ou idle python)  actualiser les token et id sentinelhub / meteo france :
 
 https://partner-api.meteofrance.com/store/site/pages/list-apis.jag
 
 https://services.sentinel-hub.com/
 
-4 - Lancer __main__.py :
+5 - Lancer __main__.py :
 
 Si le code est lancé après 18h on obtient la carte du risque du lendemain 
 
 Sinon la carte de risque de la journée
 
-5 (optionnel) - Ouverture avec QGIS et echelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
+6 (optionnel) - Ouverture avec QGIS et echelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
