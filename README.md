@@ -4,9 +4,13 @@
 
 1 - Tiff géoréférencé avec valeur entre 0 et 1 dans ``./output/GeoTiff/{date}.tiff``
 
+![tiff-example](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/Output/other/Exemple.png)
+
 2 - Image RGB selon echelle de risque  dans ``./output/PNG/{date}.png``
 
-## Instalation
+![tiff-example2](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/Output/other/exemple_rgb.png)
+
+## Installation
 
 1 - Télécharger répertoire
 
