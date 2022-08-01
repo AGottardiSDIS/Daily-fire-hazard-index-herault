@@ -41,3 +41,5 @@ Si le code est lancé après 18h on obtient la carte du risque du lendemain
 Sinon la carte de risque de la journée
 
 6 (optionnel) - Ouverture avec QGIS et echelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
+
+contact : adrien.gottardi@outlook.fr
