@@ -4,7 +4,9 @@ from rasterio.plot import show
 import numpy as np
 import fiona
 from rasterio.enums import Resampling
+from rasterio.plot import show
 from datetime import date, timedelta, datetime
+from matplotlib import pyplot as plt
 
 from meteo_importation import all_info
 from sentinel_importation import get_img
@@ -108,8 +110,8 @@ if (__name__ == '__main__'):
     today = datetime.now()
     if(int(today.strftime("%H")) < 18):
         date_in = (today - timedelta(days = 1)).strftime("%Y-%m-%d")
-        date_DHFI = today
-        print(f"Le programme est lancé avant 18h (Paris) le calcul du DHFI sera réaliser pour la journée du " + today.strftime("%d/%m/%Y"))
+        date_DHFI = today.strftime("%Y-%m-%d")
+        print(f"Le programme est lancé avant 18h (Paris) le calcul du DHFI sera réalisé pour la journée du " + today.strftime("%d/%m/%Y"))
     else:
         date_in = today.strftime("%Y-%m-%d")
         date_DHFI = (today + timedelta(days = 1)).strftime("%Y-%m-%d")
@@ -117,7 +119,10 @@ if (__name__ == '__main__'):
 
     all_info(date_in)
     date_before = (today - timedelta(days = 5)).strftime("%Y-%m-%d")
-    get_img(date_before, date_in)
+    try:
+        get_img(date_before, date_in)
+    except:
+        print("Sentinel download")
     
     #-----------------------Importation données--------------------------------
 
@@ -179,6 +184,49 @@ if (__name__ == '__main__'):
 
     with rasterio.open(f'./Output/other/LFc_{date_DHFI}.tif', 'w', **kwargs) as dstC:
         dstC.write(LFc.astype(rasterio.float32))
+
+    test = np.zeros([DHFI.shape[1], DHFI.shape[2], 3])
+
+    for x in range(DHFI.shape[1]):
+        for y in range(DHFI.shape[2]):
+            if(DHFI[0,x,y] <= 0.1):
+                test[x,y,:] = [23,0,128]
+            if(DHFI[0,x,y] > 0.1 and DHFI[0,x,y] <= 0.2):
+                test[x,y,:] = [22,0,229]
+            if(DHFI[0,x,y] > 0.2 and DHFI[0,x,y] <= 0.3):
+                test[x,y,:] = [61,240,16]
+            if(DHFI[0,x,y] > 0.3 and DHFI[0,x,y] <= 0.4):
+                test[x,y,:] = [106,175,45]
+            if(DHFI[0,x,y] > 0.4 and DHFI[0,x,y] <= 0.5):
+                test[x,y,:] = [254,254,1]
+            if(DHFI[0,x,y] > 0.5 and DHFI[0,x,y] <= 0.6):
+                test[x,y,:] = [248,218,66]
+            if(DHFI[0,x,y] > 0.6 and DHFI[0,x,y] <= 0.7):
+                test[x,y,:] = [255,166,1]
+            if(DHFI[0,x,y] > 0.7 and DHFI[0,x,y] <= 0.8):
+                test[x,y,:] = [255,1,9]
+            if(DHFI[0,x,y] > 0.8 and DHFI[0,x,y] <= 0.9):
+                test[x,y,:] = [169,16,22]
+            if(DHFI[0,x,y] > 0.9):
+                test[x,y,:] = [103,0,13]
+
+    kwargs = dataset_meta
+    kwargs.update(
+        count = 3,
+        dtype=rasterio.int8,
+        compress='lzw')
+    
+    test = test.astype(int)
+    test_b = test.transpose(2,0,1)
+
+    with rasterio.open(f'./Output/PNG/DHFI_RGB_{date_DHFI}.png', 'w', **kwargs) as dstC:
+        dstC.write(test_b)
+    
+    plt.imshow(test)
+    plt.show()
+            
+            
+                
 
 
 

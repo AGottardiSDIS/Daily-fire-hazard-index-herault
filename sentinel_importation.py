@@ -22,11 +22,13 @@ from datetime import datetime, timedelta
 import os
 import config
 
+
+#Identifiant de SentinelHub
+id_sentinel = config.id_sentinel
+pass_sentinel = config.pass_sentinel
+
+
 def get_img(date_in, date_out):
-    #Identifiant de SentinelHub
-    id_sentinel = config.id_sentinel
-    pass_sentinel = config.pass_sentinel
-    
 
     #Connexion SentinelHub
     config = SHConfig()
