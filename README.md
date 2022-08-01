@@ -1,14 +1,14 @@
 # Daily-fire-hazard-index-herault
 
+![DHFI exemple](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/_readme_data/dhfi%20avec%20barre.png)
+
+DFHI est un algorithme calculant le risque incendie journalier de l'Hérault en fonction de données météo-france (vent, humidité, température), des données sur le type de végétation ainsi que des données sur la santé du couvert végétal via des observations satellite Sentinel 2. La zone d'étude correspond au département de l'Hérault (34) sensible aux riques incendie avec 500 feux répértoriés les 3 dernières années. 
+
 ## Output
 
 1 - Tiff géoréférencé avec valeur entre 0 et 1 dans ``./output/GeoTiff/{date}.tiff``
 
-![tiff-example](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/Output/other/Exemple.png)
-
 2 - Image RGB selon echelle de risque  dans ``./output/PNG/{date}.png``
-
-![tiff-example2](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/Output/other/exemple_rgb.png)
 
 ## Installation
 
