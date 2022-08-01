@@ -10,7 +10,7 @@
 
 1 - Télécharger répertoire
 
-2 - Télecharger les épendeance (dans l'invité de commandes) :
+2 - Télecharger les dépendeances (dans l'invité de commandes) :
 
 ```bash
 $ pip install -r ./requirements.txt
