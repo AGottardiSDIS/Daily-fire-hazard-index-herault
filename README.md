@@ -6,7 +6,7 @@ DFHI est un algorithme calculant le risque incendie journalier de l'Hérault en 
 
 ## Fonctionnement 
 
-
+![fonct](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/_readme_data/schema.png)
 
 ## Output
 
@@ -29,3 +29,11 @@ $ pip install -r ./requirements.txt
 https://partner-api.meteofrance.com/store/site/pages/list-apis.jag
 
 https://services.sentinel-hub.com/
+
+4 - Lancer __main__.py :
+
+Si le code est lancé après 18h on obtient la carte du risque du lendemain 
+
+Sinon la carte de risque de la journée
+
+5 (optionnel) - Ouverture avec QGIS et echelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
