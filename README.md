@@ -10,12 +10,6 @@ basé sur les travaux de Giovanni Laneve : https://www.mdpi.com/2072-4292/12/15/
 
 ![fonct](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/_readme_data/schema.png)
 
-## Output
-
-1 - Tiff géoréférencé avec valeur entre 0 et 1 dans ``./output/GeoTiff/{date}.tiff``
-
-2 - Image RGB selon echelle de risque  dans ``./output/PNG/{date}.png``
-
 ## Installation
 
 1 - Télécharger répertoire
@@ -41,5 +35,19 @@ Si le code est lancé après 18h on obtient la carte du risque du lendemain
 Sinon la carte de risque de la journée
 
 6 (optionnel) - Ouverture avec QGIS et echelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
+
+## Output
+
+1 - Tiff géoréférencé avec valeur entre 0 et 1 dans ``./output/GeoTiff/{date}.tiff``
+
+2 - Image RGB selon echelle de risque  dans ``./output/PNG/{date}.png``
+
+## Roadmap
+
+- Ajout d'un coeficient "d'agravation / amélioration" prenant en compte le relief du territoire et l'historique des feux 
+
+- Corriger les effets de bord du modèle
+
+- Valider les modèles avec la réalité (sur tout les feux de 2022 par exemple)
 
 contact : adrien.gottardi@outlook.fr
