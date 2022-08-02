@@ -32,7 +32,7 @@ https://services.sentinel-hub.com/
 
 - Si le code est lancé après 18h, on obtient la carte du risque du lendemain 
 
-- Sinon la carte de risque de la journée
+- Sinon la carte de risque de la journée est générée
 
 6 (optionnel) - Ouverture avec QGIS et échelle de risque nommée pour la colorimétrie :  ``./QGIS_Echelle.txt``
 
