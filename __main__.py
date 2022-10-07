@@ -73,6 +73,7 @@ def calculate_DHFI(red, nir, swir, HR, Tempera, mxd, min_ndvi, max_ndvi, Vent):
     ndvi[ndvi < -1] = -1
 
     #Division par 255 pour avoir données entre 0 et 1
+    #Maybe faux à regarder de + pres
     gvmi =((nir/255+0.1)-(swir/255+0.02))/((nir/255+0.1)+(swir/255+ 0.02)) 
 
     ewt = (-(0.4743 * 0.006577 + (5.853*2.718-5) - 0.006577 * gvmi) + np.sqrt( ((0.4743 * 0.006577 + (5.853*2.718-5) - 0.006577 * gvmi))**2 - 4 * (5.853*2.71 -5 ) * 0.006577 * (0.4743-0.3967 - gvmi)))/(2*0.006577 *(5.853*2.71-5))
@@ -101,7 +102,7 @@ def calculate_DHFI(red, nir, swir, HR, Tempera, mxd, min_ndvi, max_ndvi, Vent):
 
     DHFI = (1 -LFc)*(1 - TNf)
     
-    return DHFI, TNf, LFc
+    return DHFI, TNf, LFc, greeness
 
 if (__name__ == '__main__'):
     print("Start calcul DHFI")
@@ -161,7 +162,7 @@ if (__name__ == '__main__'):
     #-------------------------Calcul----------------------------------
 
     try:
-        DHFI, TNf, LFc = calculate_DHFI(red, nir, swir, HR, Tempera, mxd, min_ndvi, max_ndvi, Vent)
+        DHFI, TNf, LFc, green = calculate_DHFI(red, nir, swir, HR, Tempera, mxd, min_ndvi, max_ndvi, Vent)
         print("Fin du calcul")
 
     except:
@@ -175,6 +176,9 @@ if (__name__ == '__main__'):
         dtype=rasterio.float32,
         count=1,
         compress='lzw')
+
+    with rasterio.open(f'./Output/GeoTiff/VCI_{date_DHFI}.tif', 'w', **kwargs) as dst:
+        dst.write(green.astype(rasterio.float32))
 
     with rasterio.open(f'./Output/GeoTiff/DHFI_{date_DHFI}.tif', 'w', **kwargs) as dst:
         dst.write(DHFI.astype(rasterio.float32))
