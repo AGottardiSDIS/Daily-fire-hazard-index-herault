@@ -8,7 +8,7 @@ Basé sur les travaux de Giovanni Laneve : https://www.mdpi.com/2072-4292/12/15/
 
 ## Fonctionnement 
 
-![fonct](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/_readme_data/schema.png)
+![fonct](https://github.com/AGottardiSDIS/Daily-fire-hazard-index-herault/blob/main/_readme_data/schemas.png)
 
 ## Installation
 
